@@ -41,7 +41,7 @@ on(b.clicks) do c
     croppedImage = selectediImage[][mini[1]:maxi[1], mini[2]:maxi[2]]
     pos = parse(Int64, "$(image[])")
     ext = split(input[pos], ".")[2]
-    save(path*"/ouput/image_$(image[])."*ext, rotl90(croppedImage[:, end:-1:1]))
+    save(path*"/output/image_$(image[])."*ext, rotl90(croppedImage[:, end:-1:1]))
 end
 
 on(b2.clicks) do c
