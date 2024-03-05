@@ -20,10 +20,15 @@ pkg> activate .
 
 # run instantiate to install packages/dependencies
 (picncrop) pkg> instantiate
+  Precompiling project...
 ```
 
 ## Run pic'n'crop
 ```julia
+# switch to pkg mode to activate env
+pkg> activate .
+  Activating project at `~/path/to/picncrop`
+
 # just put some images in the input subfolder and run in REPL
 julia> include("picncrop.jl")
 ```
