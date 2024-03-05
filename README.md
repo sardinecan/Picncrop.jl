@@ -32,4 +32,5 @@ pkg> activate .
 # just put some images in the input subfolder and run in REPL
 julia> include("picncrop.jl")
 ```
- 
+## Demo
+![demo](files/picncrop.gif)
