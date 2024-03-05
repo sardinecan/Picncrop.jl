@@ -3,6 +3,7 @@ Pic'n'crop is an interactive cropper made with Julia.
 
 ## Prequisite
 Julia: `>= 1.7`
+
 packages:  `GLMakie`, `FileIO`, `ImageIO`
 
 ## Install
