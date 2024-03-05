@@ -4,12 +4,12 @@ using ImageIO
 
 path = @__DIR__
 
+extentions = ["jpg", "JPG", "jpeg", "png", "PNG", "tif", "tiff"]
 input = readdir(path*"/input", join=true)
+filter!((file) -> true in endswith.(file, extentions), input)
 images = [load(image) for image in input]
 
 fig = Figure()
-
-#i_slice = Observable(1)
 
 image = Observable(1)
 
