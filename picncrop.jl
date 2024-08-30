@@ -14,12 +14,12 @@ fig = Figure()
 image = Observable(1)
 imageName = @lift(basename(input[$image]))
 
-function getUniqueFilename(base_name, output_path)
-  ext = split(base_name, ".")[end] # Extraire l'extension du fichier
-  filename = "$(output_path)/$(base_name).crop.$(ext)"
+function getUniqueFilename(basename, outputpath)
+  ext = split(basename, ".")[end] # Extraire l'extension du fichier
+  filename = "$(outputpath)/$(basename).crop.$(ext)"
   counter = 1
   while isfile(filename)
-    filename = "$(output_path)/$(base_name).crop_$(counter).$(ext)"
+    filename = "$(outputpath)/$(basename).crop_$(counter).$(ext)"
     counter += 1
   end
   return filename
@@ -29,7 +29,7 @@ ax = Axis(
   fig[1, 1],
   aspect = DataAspect(), 
   yreversed = true,
-  title = image_name
+  title = imageName
 )
 hidedecorations!(ax)
 
@@ -50,7 +50,7 @@ on(b.clicks) do c
   mini = round.(Int, mini) # to index into an image, which is an array, we need ints
   maxi = round.(Int, maxi) # and the axis bounding box is always represented in floats
   croppedImage = selectediImage[][mini[1]:maxi[1], mini[2]:maxi[2]]
-  filename = getUniqueFilename(image_name[], path*"/output")
+  filename = getUniqueFilename(imageName[], path*"/output")
   println("saved "*filename)
   save(filename, rotl90(croppedImage[:, end:-1:1]))
 end 
