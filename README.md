@@ -33,4 +33,4 @@ pkg> activate .
 julia> include("picncrop.jl")
 ```
 ## Demo
-![demo](files/picncrop.gif)
+![demo](assets/picncrop.gif)
